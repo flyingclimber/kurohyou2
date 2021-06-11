@@ -47,7 +47,7 @@ def update_kseq(data, textList):
         newOff = len(outData) // 4
         for x in textOffByOff[off]:
             outData = outData[:x] + struct.pack('<H', newOff) + outData[x+2:]
-        outData += t.replace('\r', '').encode('utf-16le') + b'\x00\x00'
+        outData += t.replace('\r', '').encode('utf-8') + b'\x00\x00'
         # addresses must be 4-aligned
         if len(outData) % 4 != 0:
             outData += b'\x00\x00'

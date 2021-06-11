@@ -32,7 +32,7 @@ def update_globals(data, textList):
         if not found:
             print("Found no ID %08x in original file, abort!" % ID)
             exit(1)
-        outData += t.replace('\r','').encode('utf-16le') + b'\x00\x00'
+        outData += t.replace('\r','').encode('utf-8') + b'\x00\x00'
     outData = outData[:4] + struct.pack('<I', len(outData)) + outData[8:]
     return outData
 
